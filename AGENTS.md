@@ -17,16 +17,23 @@ The `.claude/skills/` folder holds `write-plan` (drafts `plan/PLAN.md`) and `cle
 
 ## Structure and content
 
-`content/business.ts` holds the starter's shared business details and sample copy. When building a
-site, write page-specific copy directly in the route's `app/**/page.tsx` as JSX children of named React
-components. Put headings, calls to action, labels and captions in page order. Backing components
-own the semantic markup, Tailwind styles, accessibility and behavior. Keep typed data in `content/`
-for values the site reads programmatically, including contact details and structured collections.
-Document fields and validate IDs, required
-fields, prices, availability and references with item-specific failures. Rename in content and
-site.config.json. Keep the provisioner's config shape: name, description, domain, optional timeZone,
-jamstacks.siteId/cdnUrl and optional provisioningId. Business data never goes there. Reuse the design's
-illustrations and palette rather than adding unrelated assets.
+Page-specific copy lives directly in each route's `app/**/page.tsx` as JSX children of named React
+components, in page order. Backing components in `components/` own semantic markup, Tailwind styles,
+accessibility, and browser behavior. Typed shared data lives in `content/`:
+
+- `content/business.ts`: studio name, contact details, address, landmark, opening hours, term line, enquiry copy.
+- `content/classes.ts`: levels (ages, durations, leotard colours), six styles (BPM, steps), teachers, rooms, fees.
+- `content/timetable.ts`: 28 weekly classes; owners edit `availability` most often.
+- `content/concerts.ts`: upcoming shows, performances, `ticketStatus`, dress rehearsals, costume fees, archive.
+- `content/uniform.ts`: kit by style, hair rules, front-desk studio shop (`stock`).
+- `content/validate.ts`: validates IDs, references, durations, hours, overlaps, prices, dates, and statuses (runs in tests and fails `next build` via `app/layout.tsx`).
+- `components/art/`: inline SVG artwork (`stage.tsx`, `objects.tsx`, `icons.tsx`) coloured via CSS tokens.
+- `lib/schedule.ts` & `lib/hours.ts`: `America/Chicago` open-now, today's classes, and concert countdown logic.
+- `lib/structured-data.ts`: `LocalBusiness` / `EducationalOrganization` and `DanceEvent` JSON-LD.
+
+Rename in `content/business.ts` and `site.config.json`. Keep the provisioner's config shape: name,
+description, domain, optional timeZone, jamstacks.siteId/cdnUrl and optional provisioningId. Business
+data never goes there. Reuse the design's illustrations and palette rather than adding unrelated assets.
 
 ## Styling: Tailwind CSS v4
 

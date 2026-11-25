@@ -1,7 +1,8 @@
 {
-  "name": "Jamstacks starter",
-  "description": "A neutral Next.js foundation for Jamstacks websites.",
-  "domain": "",
+  "name": "Pirouette & Pulse Dance",
+  "description": "Ballet, contemporary, jazz, tap, hip-hop and musical theatre for ages 3 to adult in Minneapolis, with a weekly timetable, two concerts a year and a clear uniform guide.",
+  "domain": "next-dance-studio.jamstacks.net",
+  "timeZone": "America/Chicago",
   "jamstacks": {
     "siteId": "",
     "cdnUrl": "https://cdn.jamstacks.net"
